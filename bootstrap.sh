@@ -21,7 +21,7 @@ apt-get -y install \
 # Add PHP & Maria DB PPA
 add-apt-repository ppa:ondrej/php
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.2/ubuntu xenial main'
+add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mariadb.nethub.com.hk/repo/10.2/ubuntu xenial main'
 
 apt-get update -y
 
