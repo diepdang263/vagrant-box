@@ -94,5 +94,13 @@ service nginx restart
 service php* restart
 service mysql restart
 
+# Add service start with system
+rm /etc/systemd/system/mysql.service
+
+systemctl enable nginx
+systemctl enable mysql
+systemctl enable redis-server
+cd /etc/init.d && for script in php* ; do systemctl enable $script ; done
+
 # Config alias
 alias composer-php5.6='php5.6 /usr/local/bin/composer'
