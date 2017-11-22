@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision :shell, :path => "bootstrap.sh"
 
     config.vm.synced_folder ".", "/vagrant", create: true, owner: "vagrant", group: "vagrant"
-    config.vm.synced_folder "./logs", "/var/log", owner: "vagrant", group: "vagrant"
+    config.vm.synced_folder "./logs", "/var/log", create: true, owner: "vagrant", group: "vagrant"
     config.vm.synced_folder "D:/Projects", "/home/vagrant/apps", create: true, owner: "vagrant", group: "vagrant"
 
 end
