@@ -1,0 +1,35 @@
+server {
+    listen      80;
+    server_name ~^(www\.)?(?<domain>.+)$;
+    index       index.php index.html;
+    access_log  /var/log/nginx/$domain-access.log;
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    # Default variable
+    set $root_path /home/vagrant/apps/$domain;
+    set $php_ver   7.1;
+
+    include /home/vagrant/apps/*/.server;
+
+    root $root_path;
+
+    location / {
+        if (!-f $document_root/index.php) {
+            return 503;
+        }
+
+        try_files  $uri $uri/ /index.php?$args;
+        expires    max;
+        access_log on;
+    }
+
+    include /etc/nginx/extra/static.conf;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php$php_ver-fpm.sock;
+        include fastcgi_params;
+    }
+}
