@@ -16,6 +16,8 @@ apt-get -y install \
            make \
            gcc \
            g++ \
+		   zip \
+		   unzip\
            curl
 
 # Add PHP & Maria DB PPA
@@ -42,6 +44,7 @@ apt-get -y install \
            php5.6-gd \
            php5.6-intl \
            php5.6-mbstring \
+		   php5.6-zip\
            php-fpm \
            php-common \
            php-json \
@@ -56,6 +59,7 @@ apt-get -y install \
            php-gd \
            php-intl \
            php-mbstring \
+		   php-zip \
            git
 
 # Install MariaDB
