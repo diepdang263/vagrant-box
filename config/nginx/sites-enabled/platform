@@ -20,7 +20,7 @@ server {
         access_log on;
     }
 
-    include /etc/nginx/extra/static.conf;
+    #include /etc/nginx/extra/static.conf;
 
     location ~ \.php$ {
         fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
@@ -50,7 +50,7 @@ server {
         access_log on;
     }
 
-    include /etc/nginx/extra/static.conf;
+    #include /etc/nginx/extra/static.conf;
 
     location ~ \.php$ {
         fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
@@ -80,7 +80,7 @@ server {
         access_log on;
     }
 
-    include /etc/nginx/extra/static.conf;
+    #include /etc/nginx/extra/static.conf;
 
     location ~ \.php$ {
         fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
