@@ -1,0 +1,89 @@
+server {
+    listen      80;
+    server_name vntap.dev;
+    index       index.php;
+    access_log  /var/log/nginx/vntap-access.log;
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    root /home/vagrant/apps/vntap.dev/app/webroot;
+
+    location / {
+        if (!-f $document_root/index.php) {
+            return 503;
+        }
+
+        try_files  $uri $uri/ /index.php?$args;
+        expires    max;
+        access_log on;
+    }
+
+    include /etc/nginx/extra/static.conf;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
+        include fastcgi_params;
+    }
+}
+
+server {
+    listen      80;
+    server_name stats.vntap.dev;
+    index       index.php;
+    access_log  /var/log/nginx/vntap-access.log;
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    root /home/vagrant/apps/vntap.dev/stats/webroot;
+
+    location / {
+        if (!-f $document_root/index.php) {
+            return 503;
+        }
+
+        try_files  $uri $uri/ /index.php?$args;
+        expires    max;
+        access_log on;
+    }
+
+    include /etc/nginx/extra/static.conf;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
+        include fastcgi_params;
+    }
+}
+
+server {
+    listen      80;
+    server_name cms.vntap.dev;
+    index       index.php;
+    access_log  /var/log/nginx/vntap-access.log;
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    root /home/vagrant/apps/vntap.dev/cms/webroot;
+
+    location / {
+        if (!-f $document_root/index.php) {
+            return 503;
+        }
+
+        try_files  $uri $uri/ /index.php?$args;
+        expires    max;
+        access_log on;
+    }
+
+    include /etc/nginx/extra/static.conf;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
+        include fastcgi_params;
+    }
+}

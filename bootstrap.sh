@@ -16,9 +16,11 @@ apt-get -y install \
            make \
            gcc \
            g++ \
-		   zip \
-		   unzip\
-           curl
+		       zip \
+		       unzip \
+           curl \
+           aptitude \
+           python-software-properties
 
 # Add PHP & Maria DB PPA
 add-apt-repository ppa:ondrej/php
@@ -33,6 +35,7 @@ apt-get -y install \
            php5.6-fpm \
            php5.6-common \
            php5.6-json \
+           php5.6-gmp \
            php5.6-mysql \
            php5.6-dev \
            php5.6-mcrypt \
@@ -44,10 +47,12 @@ apt-get -y install \
            php5.6-gd \
            php5.6-intl \
            php5.6-mbstring \
-		   php5.6-zip\
+		       php5.6-zip\
            php-fpm \
            php-common \
            php-json \
+           php-geoip \
+           php-gmp \
            php-mysql \
            php-dev \
            php-mcrypt \
@@ -59,8 +64,19 @@ apt-get -y install \
            php-gd \
            php-intl \
            php-mbstring \
-		   php-zip \
+		       php-zip \
+           php-pear \
            git
+
+# Install PHPUnit
+apt-get remove phpunit -y
+apt-get upgrade pear -y
+sudo pear channel-discover pear.phpunit.de
+sudo pear channel-discover pear.symfony-project.com
+sudo pear channel-discover components.ez.no
+sudo pear update-channels -y
+sudo pear upgrade-all -y
+sudo pear install --alldeps phpunit/PHPUnit -y
 
 # Install MariaDB
 echo 'mariadb-server mysql-server/root_password password mysql' | debconf-set-selections
