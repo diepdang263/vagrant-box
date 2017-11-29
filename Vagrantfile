@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.name = "WebServer"
     end
 
-    config.vm.box = "ubuntu/xenial64"
+    config.vm.box = "bento/ubuntu-16.04"
     config.vm.provision :shell, :path => "bootstrap.sh"
 
     config.vm.synced_folder ".", "/vagrant", create: true, owner: "vagrant", group: "vagrant"
