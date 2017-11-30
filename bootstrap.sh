@@ -47,6 +47,7 @@ apt-get -y install \
            php5.6-intl \
            php5.6-mbstring \
 		   php5.6-zip\
+		   php5.6-xml \
            php-fpm \
            php-common \
            php-json \
