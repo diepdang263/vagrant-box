@@ -26,8 +26,6 @@ server {
         access_log on;
     }
 
-    include /etc/nginx/extra/static.conf;
-
     location ~ \.php$ {
         fastcgi_pass unix:/var/run/php/php$php_ver-fpm.sock;
         include fastcgi_params;
