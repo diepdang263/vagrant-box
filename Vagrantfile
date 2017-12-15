@@ -7,6 +7,8 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    
+    config.vbguest.auto_update = false
 
 	config.ssh.forward_agent = true
     config.vm.network "private_network", ip: "192.168.13.37"
@@ -16,7 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
         v.customize ["modifyvm", :id, "--memory", "1024"]
         v.customize ["modifyvm", :id, "--cpus", "1"]
-        v.name = "WebServer"
     end
 
     config.vm.box = "bento/ubuntu-16.04"

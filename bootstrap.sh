@@ -19,10 +19,12 @@ apt-get -y install \
 		   zip \
 		   unzip \
            curl \
-           aptitude
+           aptitude \
+           mcrypt
 
 # Add PHP & Maria DB PPA
 add-apt-repository ppa:ondrej/php
+add-apt-repository ppa:ondrej/nginx
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mariadb.nethub.com.hk/repo/10.2/ubuntu xenial main'
 
@@ -48,6 +50,7 @@ apt-get -y install \
            php5.6-mbstring \
 		   php5.6-zip\
 		   php5.6-xml \
+		   php5.6-sqlite3 \
            php-fpm \
            php-common \
            php-json \
@@ -65,6 +68,9 @@ apt-get -y install \
            php-intl \
            php-mbstring \
 		   php-zip \
+		   php-xml \
+		   php-sqlite3 \
+		   php-pear \
            git
 
 # Install MariaDB
