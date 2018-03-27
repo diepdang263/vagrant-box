@@ -5,8 +5,6 @@ set -e
 cp /vagrant/config/system/sources.list /etc/apt/sources.list
 
 apt-get update -y
-apt-get upgrade -y
-apt-get dist-upgrade -y
 
 # Install system library
 apt-get -y install \
@@ -16,8 +14,8 @@ apt-get -y install \
            make \
            gcc \
            g++ \
-		   zip \
-		   unzip \
+		       zip \
+		       unzip \
            curl \
            aptitude \
            mcrypt
@@ -48,9 +46,9 @@ apt-get -y install \
            php5.6-gd \
            php5.6-intl \
            php5.6-mbstring \
-		   php5.6-zip\
-		   php5.6-xml \
-		   php5.6-sqlite3 \
+		       php5.6-zip\
+		       php5.6-xml \
+		       php5.6-sqlite3 \
            php-fpm \
            php-common \
            php-json \
@@ -67,10 +65,10 @@ apt-get -y install \
            php-gd \
            php-intl \
            php-mbstring \
-		   php-zip \
-		   php-xml \
-		   php-sqlite3 \
-		   php-pear \
+		       php-zip \
+		       php-xml \
+		       php-sqlite3 \
+		       php-pear \
            git
 
 # Install MariaDB
@@ -118,4 +116,4 @@ systemctl enable redis-server
 cd /etc/init.d && for script in php* ; do systemctl enable $script ; done
 
 # Config alias
-alias composer-php5.6='php5.6 /usr/local/bin/composer'
+alias composer-php5='php5.6 /usr/local/bin/composer'

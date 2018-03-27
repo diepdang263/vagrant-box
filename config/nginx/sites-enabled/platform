@@ -1,6 +1,6 @@
 server {
     listen      80;
-    server_name vntap.dev;
+    server_name vntap.local;
     index       index.php;
     access_log  /var/log/nginx/vntap-access.log;
 
@@ -8,7 +8,7 @@ server {
         deny all;
     }
 
-    root /home/vagrant/apps/vntap.dev/app/webroot;
+    root /home/vagrant/apps/vntap.local/app/webroot;
 
     location / {
         if (!-f $document_root/index.php) {
@@ -30,7 +30,7 @@ server {
 
 server {
     listen      80;
-    server_name stats.vntap.dev;
+    server_name stats.vntap.local;
     index       index.php;
     access_log  /var/log/nginx/vntap-access.log;
 
@@ -38,7 +38,7 @@ server {
         deny all;
     }
 
-    root /home/vagrant/apps/vntap.dev/stats/webroot;
+    root /home/vagrant/apps/vntap.local/stats/webroot;
 
     location / {
         if (!-f $document_root/index.php) {
@@ -60,7 +60,7 @@ server {
 
 server {
     listen      80;
-    server_name cms.vntap.dev;
+    server_name cms.vntap.local 3qgo.local nap.3qgo.local;
     index       index.php;
     access_log  /var/log/nginx/vntap-access.log;
 
@@ -68,7 +68,7 @@ server {
         deny all;
     }
 
-    root /home/vagrant/apps/vntap.dev/cms/webroot;
+    root /home/vagrant/apps/vntap.local/cms/webroot;
 
     location / {
         if (!-f $document_root/index.php) {

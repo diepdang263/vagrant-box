@@ -9,8 +9,8 @@ server {
     }
 
     # Default variable
-    set $root_path /home/vagrant/apps/$domain;
-    set $php_ver   7.1;
+    set $root_path /home/vagrant/apps/$domain/public;
+    set $php_ver   7.2;
 
     include /home/vagrant/apps/*/.server;
 
